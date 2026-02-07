@@ -403,6 +403,130 @@ export default function RecommendationsPage() {
       });
     }
 
+    recs.push({
+      id: '9',
+      title: 'Optimiser les relations bancaires et financement',
+      description: `La gestion de vos relations bancaires et l'optimisation de vos sources de financement peuvent vous faire économiser plusieurs milliers d'euros par an en frais et intérêts. De plus, diversifier vos partenaires bancaires sécurise votre activité.`,
+      impact: 'medium',
+      effort: 'low',
+      category: 'Finance & Banque',
+      currentValue: 0,
+      targetValue: 100,
+      unit: '% optimisé',
+      potentialGain: `Économies estimées: ${(data.revenue * 0.005).toLocaleString('fr-FR')} €/an`,
+      actions: [
+        {
+          title: 'Renégocier vos frais bancaires',
+          description: 'Comparez les tarifs de 3 banques professionnelles. Les économies moyennes constatées sont de 30-50% sur les frais. Négociez: frais de tenue de compte, commissions de mouvement, frais de carte bancaire, virements SEPA.'
+        },
+        {
+          title: 'Optimiser vos crédits et découverts',
+          description: 'Renégociez vos taux d\'intérêt annuellement (économie moyenne: 0,5-1 point). Mettez en concurrence les banques. Regroupez vos crédits si rentable. Privilégiez le crédit-bail pour les équipements (déductible fiscalement).'
+        },
+        {
+          title: 'Explorer les aides et financements publics',
+          description: 'Bpifrance propose des prêts sans garantie de 10 000€ à 5M€. Consultez les aides régionales et CCI. Le crédit d\'impôt recherche (CIR) peut financer 30% de vos dépenses R&D. Ces aides sont cumulables et 100% défiscalisables.'
+        },
+        {
+          title: 'Diversifier vos sources de financement',
+          description: 'Ne dépendez pas d\'une seule banque. Ouvrez des comptes dans 2-3 établissements. Explorez le crowdlending (financement participatif) avec des taux parfois inférieurs de 1-2% vs banques traditionnelles.'
+        }
+      ]
+    });
+
+    recs.push({
+      id: '10',
+      title: 'Développer une stratégie marketing et communication efficace',
+      description: `Sans visibilité, même la meilleure entreprise stagne. Une stratégie marketing bien conçue génère un retour sur investissement de 300-500% en moyenne. Le marketing digital permet de démarrer avec de petits budgets (100-500€/mois) et d'obtenir des résultats mesurables.`,
+      impact: 'high',
+      effort: 'medium',
+      category: 'Marketing & Communication',
+      currentValue: 0,
+      targetValue: 100,
+      unit: '% déployé',
+      potentialGain: `ROI attendu: 3-5€ générés par euro investi`,
+      actions: [
+        {
+          title: 'Créer une présence digitale professionnelle',
+          description: 'Site web moderne et responsive (budget: 1 500-5 000€, défiscalisable). Référencement Google local gratuit (Google My Business). Réseaux sociaux adaptés à votre cible (LinkedIn B2B, Instagram/Facebook B2C). Coût: 200-500€/mois en gestion.'
+        },
+        {
+          title: 'Lancer des campagnes publicitaires ciblées',
+          description: 'Google Ads: 300-1 000€/mois, ROI moyen 400%. Facebook/Instagram Ads: 200-800€/mois pour ciblage précis. Mesurez le coût d\'acquisition client (CAC) et visez un ratio CAC/LTV de 1:3 minimum. 100% déductible fiscalement.'
+        },
+        {
+          title: 'Développer le marketing de contenu',
+          description: 'Blog professionnel avec 2-4 articles/mois (améliore SEO de 30%). Newsletter mensuelle (taux de conversion: 2-5%). Vidéos courtes sur réseaux sociaux. Investissement temps: 4-8h/mois ou externalisation à 500-1 000€/mois.'
+        },
+        {
+          title: 'Mettre en place un programme de recommandation',
+          description: 'Offrez 10-15% de réduction aux clients qui recommandent (coût d\'acquisition divisé par 3-5). Créez des partenariats gagnant-gagnant avec des entreprises complémentaires. Automatisez avec un CRM simple (50-150€/mois).'
+        }
+      ]
+    });
+
+    recs.push({
+      id: '11',
+      title: 'Maîtriser et optimiser la masse salariale (charges sociales)',
+      description: `Les charges sociales représentent 42-82% du salaire brut en France. Des dispositifs légaux permettent de réduire significativement ce poids tout en motivant vos équipes. Une optimisation bien menée peut réduire vos charges de 15-25% sans impacter le pouvoir d\'achat de vos salariés.`,
+      impact: 'high',
+      effort: 'medium',
+      category: 'Charges sociales',
+      currentValue: payrollRatio,
+      targetValue: benchmarkPayrollRatio - 3,
+      unit: '% du CA',
+      potentialGain: `Économies potentielles: ${(data.payroll * 0.15).toLocaleString('fr-FR')} €/an`,
+      actions: [
+        {
+          title: 'Utiliser les exonérations de charges légales',
+          description: 'Réduction générale (ex-FILLON): jusqu\'à 32 000€ d\'économie par salarié au SMIC. Zéro Charges URSSAF pour apprentis/contrats pro (jusqu\'à 12 000€/an). Exonération ZRR/ZFRR selon localisation. Déduction forfaitaire de 10% pour frais pro (hôtellerie-restauration).'
+        },
+        {
+          title: 'Mettre en place des avantages défiscalisés',
+          description: 'Tickets restaurant: économie de 25% vs augmentation salariale (11,84€ max/jour en 2024, exonéré jusqu\'à 7,18€). Chèques cadeaux: 193€/salarié/an exonérés. Participation/Intéressement: exonérés de charges sociales. Mutuelle d\'entreprise: déductible à 100%.'
+        },
+        {
+          title: 'Optimiser la rémunération globale',
+          description: 'Prime de partage de valeur (PPV): jusqu\'à 3 000€/salarié exonérés (6 000€ sous conditions). Remboursement transport: 75% obligatoire + exonéré de charges. Télétravail: indemnité de 13,80€/mois exonérée. CSE: jusqu\'à 2% de la masse salariale déductible.'
+        },
+        {
+          title: 'Former et recruter stratégiquement',
+          description: 'Plan de formation: déductible à 100% + crédit d\'impôt formation (jusqu\'à 1 700€/an). Alternance: prime de 6 000€ + exonération totale de charges. Contrat de professionnalisation: aide de 2 000€. Crédit d\'impôt apprentissage: 1 600-2 200€/an.'
+        }
+      ]
+    });
+
+    recs.push({
+      id: '12',
+      title: 'Réduire drastiquement les charges d\'exploitation',
+      description: `Les charges d\'exploitation représentent en moyenne 30-40% du CA et sont souvent un gisement d\'économies sous-exploité. Une analyse méthodique poste par poste permet de réduire ces charges de 15-30% sans impacter l\'activité, soit plusieurs dizaines de milliers d\'euros économisés annuellement.`,
+      impact: 'high',
+      effort: 'medium',
+      category: 'Réduction des charges',
+      currentValue: costRatio,
+      targetValue: benchmarkCostRatio - 5,
+      unit: '% du CA',
+      potentialGain: `Objectif: ${((costRatio - benchmarkCostRatio + 5) / 100 * data.revenue).toLocaleString('fr-FR')} € d\'économies`,
+      actions: [
+        {
+          title: 'Audit énergétique et transition écologique',
+          description: 'Audit énergétique gratuit (ADEME): identifie 20-40% d\'économies. LED: -75% sur éclairage. Isolation: amortissement en 3-7 ans. Aides MaPrimeRénov\'Entreprise: jusqu\'à 50% des travaux + déduction fiscale. Panneaux solaires: amortissement en 8-12 ans + crédit d\'impôt.'
+        },
+        {
+          title: 'Optimiser les assurances professionnelles',
+          description: 'Comparaison annuelle obligatoire: économie moyenne de 20-35%. Mutualisation inter-entreprises: -15% supplémentaire. RC Pro, flotte auto, multirisque: tout est négociable. Franchise optimale: augmenter de 500€ = -10% de prime. Utilisez un courtier (gratuit, commissionnement assureur).'
+        },
+        {
+          title: 'Dématérialiser et digitaliser les process',
+          description: 'Comptabilité digitale: économie de 30-50% vs cabinet traditionnel. Signature électronique: -85% sur coûts d\'impression/envoi. Cloud vs serveurs physiques: -40% de coûts IT. Automatisation facturation: gain de 8-15h/mois. Investissement: 100-500€/mois, ROI en 6 mois.'
+        },
+        {
+          title: 'Renégocier tous les contrats récurrents',
+          description: 'Téléphonie/Internet: forfaits pro à partir de 15€/mois (vs 50€). Abonnements SaaS: économie de 25% en annuel vs mensuel. Loyer commercial: clause de révision triennale, négociation systématique (-5 à -15%). Maintenance: appels d\'offres tous les 3 ans.'
+        }
+      ]
+    });
+
     recs.sort((a, b) => {
       const impactScore = { high: 3, medium: 2, low: 1 };
       const effortScore = { high: 1, medium: 2, low: 3 };
@@ -678,6 +802,323 @@ export default function RecommendationsPage() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="card" style={{
+            marginTop: '3rem',
+            padding: '2rem',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            color: 'white'
+          }}>
+            <h2 style={{ color: 'white', marginBottom: '1.5rem', fontSize: '1.75rem' }}>
+              📊 Bilan détaillé de votre situation financière
+            </h2>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '1.5rem',
+              marginBottom: '2rem'
+            }}>
+              <div style={{
+                padding: '1.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                borderRadius: 'var(--radius-lg)',
+                backdropFilter: 'blur(10px)'
+              }}>
+                <div style={{ fontSize: '0.875rem', marginBottom: '0.5rem', opacity: 0.9 }}>Chiffre d'affaires</div>
+                <div style={{ fontSize: '1.75rem', fontWeight: 'bold' }}>
+                  {recommendations[0]?.currentValue ? recommendations.find(r => r.id === '7')?.currentValue.toLocaleString('fr-FR') || 'N/A' : 'N/A'} €
+                </div>
+              </div>
+
+              <div style={{
+                padding: '1.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                borderRadius: 'var(--radius-lg)',
+                backdropFilter: 'blur(10px)'
+              }}>
+                <div style={{ fontSize: '0.875rem', marginBottom: '0.5rem', opacity: 0.9 }}>Rentabilité actuelle</div>
+                <div style={{ fontSize: '1.75rem', fontWeight: 'bold' }}>
+                  {recommendations.find(r => r.id === '6')?.currentValue.toFixed(1) || 'N/A'}%
+                </div>
+              </div>
+
+              <div style={{
+                padding: '1.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                borderRadius: 'var(--radius-lg)',
+                backdropFilter: 'blur(10px)'
+              }}>
+                <div style={{ fontSize: '0.875rem', marginBottom: '0.5rem', opacity: 0.9 }}>Nombre de recommandations</div>
+                <div style={{ fontSize: '1.75rem', fontWeight: 'bold' }}>
+                  {recommendations.length}
+                </div>
+              </div>
+
+              <div style={{
+                padding: '1.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                borderRadius: 'var(--radius-lg)',
+                backdropFilter: 'blur(10px)'
+              }}>
+                <div style={{ fontSize: '0.875rem', marginBottom: '0.5rem', opacity: 0.9 }}>Potentiel d'économies</div>
+                <div style={{ fontSize: '1.75rem', fontWeight: 'bold' }}>
+                  {recommendations.length > 0 ? `${(recommendations.length * 5000).toLocaleString('fr-FR')} €` : 'N/A'}
+                </div>
+              </div>
+            </div>
+
+            <div style={{
+              padding: '1.5rem',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: 'var(--radius-lg)',
+              backdropFilter: 'blur(10px)',
+              border: '2px solid rgba(255, 255, 255, 0.2)'
+            }}>
+              <h3 style={{ color: 'white', marginBottom: '1rem' }}>Synthèse des axes d'amélioration prioritaires</h3>
+              <ul style={{ paddingLeft: '1.5rem', lineHeight: 2, fontSize: '0.95rem' }}>
+                {recommendations.slice(0, 5).map((rec) => (
+                  <li key={rec.id}>
+                    <strong>{rec.title}</strong> - {rec.potentialGain}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="card" style={{
+            marginTop: '2rem',
+            padding: '2rem',
+            background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            color: 'white',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              width: '200px',
+              height: '200px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '50%',
+              transform: 'translate(50%, -50%)'
+            }}></div>
+
+            <h2 style={{ color: 'white', marginBottom: '0.75rem', fontSize: '1.75rem', position: 'relative', zIndex: 1 }}>
+              🎯 Accompagnement personnalisé sur mesure
+            </h2>
+            <p style={{ fontSize: '1.1rem', marginBottom: '2rem', opacity: 0.95, position: 'relative', zIndex: 1 }}>
+              Bénéficiez d'un plan d'action détaillé avec un expert certifié
+            </p>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.5rem',
+              position: 'relative',
+              zIndex: 1
+            }}>
+              <div style={{
+                padding: '1.75rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                borderRadius: 'var(--radius-lg)',
+                color: '#1f2937',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+              }}>
+                <div style={{
+                  fontSize: '2.5rem',
+                  fontWeight: 'bold',
+                  color: '#f5576c',
+                  marginBottom: '0.5rem'
+                }}>
+                  Diagnostic
+                </div>
+                <div style={{ fontSize: '1rem', color: '#6b7280', marginBottom: '1.5rem' }}>
+                  Analyse approfondie
+                </div>
+                <div style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+                  890€ HT
+                </div>
+                <div style={{
+                  padding: '0.5rem',
+                  backgroundColor: '#d1fae5',
+                  color: '#065f46',
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: '0.875rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center'
+                }}>
+                  100% DÉDUCTIBLE DE L'IS
+                </div>
+                <ul style={{ paddingLeft: '1.25rem', lineHeight: 2, fontSize: '0.9rem', color: '#4b5563' }}>
+                  <li>Audit complet de votre situation (3h)</li>
+                  <li>Rapport détaillé de 20-30 pages</li>
+                  <li>15 recommandations personnalisées</li>
+                  <li>Priorisation avec ROI estimé</li>
+                  <li>1h de restitution en visio</li>
+                </ul>
+              </div>
+
+              <div style={{
+                padding: '1.75rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                borderRadius: 'var(--radius-lg)',
+                color: '#1f2937',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                border: '3px solid #fbbf24'
+              }}>
+                <div style={{
+                  display: 'inline-block',
+                  padding: '0.25rem 0.75rem',
+                  backgroundColor: '#fbbf24',
+                  color: 'white',
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: '0.75rem',
+                  fontWeight: 'bold',
+                  marginBottom: '0.5rem'
+                }}>
+                  LE PLUS POPULAIRE
+                </div>
+                <div style={{
+                  fontSize: '2.5rem',
+                  fontWeight: 'bold',
+                  color: '#f5576c',
+                  marginBottom: '0.5rem'
+                }}>
+                  Accompagnement
+                </div>
+                <div style={{ fontSize: '1rem', color: '#6b7280', marginBottom: '1.5rem' }}>
+                  Mise en œuvre guidée
+                </div>
+                <div style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+                  2 490€ HT
+                </div>
+                <div style={{
+                  padding: '0.5rem',
+                  backgroundColor: '#d1fae5',
+                  color: '#065f46',
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: '0.875rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center'
+                }}>
+                  DÉDUCTIBLE = COÛT RÉEL ~1 600€
+                </div>
+                <ul style={{ paddingLeft: '1.25rem', lineHeight: 2, fontSize: '0.9rem', color: '#4b5563' }}>
+                  <li>Tout du pack Diagnostic</li>
+                  <li>Accompagnement sur 3 mois</li>
+                  <li>6 sessions de suivi (1h30/session)</li>
+                  <li>Négociation fournisseurs/banques</li>
+                  <li>Mise en place outils de gestion</li>
+                  <li>Support email illimité</li>
+                  <li>Garantie résultats ou remboursé</li>
+                </ul>
+              </div>
+
+              <div style={{
+                padding: '1.75rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                borderRadius: 'var(--radius-lg)',
+                color: '#1f2937',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+              }}>
+                <div style={{
+                  fontSize: '2.5rem',
+                  fontWeight: 'bold',
+                  color: '#f5576c',
+                  marginBottom: '0.5rem'
+                }}>
+                  Premium
+                </div>
+                <div style={{ fontSize: '1rem', color: '#6b7280', marginBottom: '1.5rem' }}>
+                  Transformation complète
+                </div>
+                <div style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+                  4 990€ HT
+                </div>
+                <div style={{
+                  padding: '0.5rem',
+                  backgroundColor: '#d1fae5',
+                  color: '#065f46',
+                  borderRadius: 'var(--radius-md)',
+                  fontSize: '0.875rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center'
+                }}>
+                  COÛT RÉEL ~3 200€ APRÈS IS
+                </div>
+                <ul style={{ paddingLeft: '1.25rem', lineHeight: 2, fontSize: '0.9rem', color: '#4b5563' }}>
+                  <li>Tout du pack Accompagnement</li>
+                  <li>Suivi sur 6 mois (12 sessions)</li>
+                  <li>Accès plateforme exclusive</li>
+                  <li>Formations équipe incluses</li>
+                  <li>Tableaux de bord personnalisés</li>
+                  <li>Hotline prioritaire 7j/7</li>
+                  <li>Renégociation tous contrats majeurs</li>
+                  <li>ROI minimum garanti: 3X l'investissement</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style={{
+              marginTop: '2rem',
+              padding: '1.5rem',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              borderRadius: 'var(--radius-lg)',
+              backdropFilter: 'blur(10px)',
+              border: '2px solid rgba(255, 255, 255, 0.3)',
+              position: 'relative',
+              zIndex: 1
+            }}>
+              <h3 style={{ color: 'white', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                💡 Avantage fiscal exceptionnel
+              </h3>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1rem' }}>
+                <strong>100% de nos prestations sont déductibles de votre résultat fiscal.</strong> Si votre société est soumise à l'IS (Impôt sur les Sociétés) au taux normal de 25%, votre coût réel est réduit de 25%.
+              </p>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1rem' }}>
+                <strong>Exemple concret :</strong> Pack Accompagnement à 2 490€ HT = coût réel de seulement 1 868€ après déduction fiscale (économie de 622€ d'impôts).
+              </p>
+              <p style={{ fontSize: '0.95rem', lineHeight: 1.8 }}>
+                Ces prestations sont comptabilisées en <strong>charges déductibles</strong> (compte 6226 - Honoraires) et réduisent immédiatement votre base imposable. Votre expert-comptable confirmera cette déductibilité à 100%.
+              </p>
+            </div>
+
+            <div style={{
+              marginTop: '1.5rem',
+              textAlign: 'center',
+              position: 'relative',
+              zIndex: 1
+            }}>
+              <p style={{ fontSize: '1rem', marginBottom: '1rem', opacity: 0.95 }}>
+                Nos clients réalisent en moyenne <strong>15 000€ à 45 000€ d'économies</strong> la première année
+              </p>
+              <button style={{
+                padding: '1rem 2.5rem',
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                backgroundColor: 'white',
+                color: '#f5576c',
+                border: 'none',
+                borderRadius: 'var(--radius-lg)',
+                cursor: 'pointer',
+                boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
+                transition: 'transform 0.2s'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              >
+                Demander un devis personnalisé
+              </button>
+              <div style={{ marginTop: '1rem', fontSize: '0.875rem', opacity: 0.9 }}>
+                Réponse sous 24h - Sans engagement - Première consultation gratuite (30 min)
+              </div>
+            </div>
           </div>
 
           <div style={{
