@@ -5,7 +5,9 @@ import { Building2, Save } from 'lucide-react';
 
 interface CompanyProfile {
   company_name: string;
+  siret: string;
   sector: string;
+  other_sector_description: string;
   employee_count: number;
   revenue: number;
   fiscal_regime: string;
@@ -35,7 +37,9 @@ export default function ProfilePage() {
   const { user } = useAuth();
   const [profile, setProfile] = useState<CompanyProfile>({
     company_name: '',
+    siret: '',
     sector: '',
+    other_sector_description: '',
     employee_count: 0,
     revenue: 0,
     fiscal_regime: ''
@@ -138,6 +142,18 @@ export default function ProfilePage() {
               </div>
 
               <div className="input-group">
+                <label htmlFor="siret">Numéro SIRET ou SIREN</label>
+                <input
+                  type="text"
+                  id="siret"
+                  value={profile.siret}
+                  onChange={(e) => setProfile({ ...profile, siret: e.target.value })}
+                  placeholder="Ex: 12345678901234 (SIRET 14 chiffres) ou 123456789 (SIREN 9 chiffres)"
+                  maxLength={14}
+                />
+              </div>
+
+              <div className="input-group">
                 <label htmlFor="sector">Secteur d'activité *</label>
                 <select
                   id="sector"
@@ -151,6 +167,20 @@ export default function ProfilePage() {
                   ))}
                 </select>
               </div>
+
+              {profile.sector === 'Autre' && (
+                <div className="input-group">
+                  <label htmlFor="other_sector_description">Précisez votre secteur d'activité *</label>
+                  <input
+                    type="text"
+                    id="other_sector_description"
+                    value={profile.other_sector_description}
+                    onChange={(e) => setProfile({ ...profile, other_sector_description: e.target.value })}
+                    placeholder="Décrivez votre secteur d'activité"
+                    required
+                  />
+                </div>
+              )}
 
               <div className="input-group">
                 <label htmlFor="employee_count">Nombre d'employés</label>
