@@ -65,15 +65,58 @@ export default function DataEntryPage() {
 
       setMessage({
         type: 'info',
-        text: 'PDF uploadé avec succès. L\'analyse automatique sera disponible prochainement. Veuillez saisir les données manuellement pour le moment.'
+        text: 'PDF uploadé avec succès. Analyse en cours...'
       });
+
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        throw new Error('No active session');
+      }
+
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/analyze-fiscal-pdf`;
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ filePath })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to analyze PDF');
+      }
+
+      const result = await response.json();
+
+      if (result.success && result.data) {
+        setData({
+          year: result.data.year || currentYear,
+          revenue: result.data.revenue || 0,
+          fixed_costs: result.data.fixed_costs || 0,
+          variable_costs: result.data.variable_costs || 0,
+          payroll: result.data.payroll || 0,
+          cash_flow: result.data.cash_flow || 0,
+          notes: result.data.notes || ''
+        });
+
+        setMessage({
+          type: 'success',
+          text: '✅ Données extraites avec succès ! Veuillez vérifier et corriger les informations ci-dessous avant de les enregistrer.'
+        });
+      } else {
+        setMessage({
+          type: 'warning',
+          text: result.message || 'L\'analyse a échoué. Veuillez saisir les données manuellement.'
+        });
+      }
 
       setUploadedFile(null);
       if (document.getElementById('pdf-upload') as HTMLInputElement) {
         (document.getElementById('pdf-upload') as HTMLInputElement).value = '';
       }
     } catch (err) {
-      setMessage({ type: 'error', text: 'Erreur lors de l\'upload du fichier' });
+      setMessage({ type: 'error', text: 'Erreur lors de l\'analyse du fichier. Veuillez saisir les données manuellement.' });
       console.error(err);
     } finally {
       setUploading(false);
@@ -161,29 +204,29 @@ export default function DataEntryPage() {
                 style={{ whiteSpace: 'nowrap' }}
               >
                 <FileUp size={18} />
-                {uploading ? 'Upload en cours...' : 'Analyser le PDF'}
+                {uploading ? 'Analyse en cours...' : 'Analyser le PDF'}
               </button>
             </div>
 
             <div style={{
               marginTop: '1rem',
               padding: '0.75rem 1rem',
-              backgroundColor: '#fef3c7',
+              backgroundColor: '#dbeafe',
               borderRadius: 'var(--radius-md)',
               display: 'flex',
               gap: '0.75rem',
               alignItems: 'flex-start'
             }}>
-              <AlertCircle size={20} color="#f59e0b" style={{ flexShrink: 0, marginTop: '0.125rem' }} />
-              <p style={{ fontSize: '0.875rem', margin: 0, color: '#92400e' }}>
-                <strong>Fonctionnalité en développement :</strong> L'analyse automatique des PDF sera disponible prochainement.
-                Le fichier sera sauvegardé et vous pourrez saisir les données manuellement ci-dessous.
+              <AlertCircle size={20} color="#2563eb" style={{ flexShrink: 0, marginTop: '0.125rem' }} />
+              <p style={{ fontSize: '0.875rem', margin: 0, color: '#1e40af' }}>
+                <strong>Important :</strong> L'analyse automatique va extraire les données du PDF et pré-remplir le formulaire ci-dessous.
+                Vous devez obligatoirement vérifier l'exactitude des informations extraites avant de les enregistrer.
               </p>
             </div>
           </div>
 
           <div className="card">
-            <h3 style={{ marginBottom: '1.5rem' }}>Ou saisir manuellement les données</h3>
+            <h3 style={{ marginBottom: '1.5rem' }}>Vérifiez et complétez les données financières</h3>
             <form onSubmit={handleSubmit}>
               <div className="input-group">
                 <label htmlFor="year">Exercice fiscal</label>
